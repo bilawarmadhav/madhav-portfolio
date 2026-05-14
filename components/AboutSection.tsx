@@ -5,17 +5,17 @@ import { motion, useInView } from 'framer-motion';
 import { Code2, Lightbulb, Layers, Zap } from 'lucide-react';
 
 const traits = [
-  { icon: Code2,     title: 'Developer',      desc: 'Writing clean, structured code across Java, C, and web technologies.',              color: '#a1a1aa' },
-  { icon: Lightbulb, title: 'Problem Solver',  desc: 'Turning complex problems into elegant, practical solutions.',                       color: '#94a3b8' },
-  { icon: Layers,    title: 'Builder',         desc: 'Creating real-world projects that are useful, polished, and impactful.',            color: '#d1d5db' },
-  { icon: Zap,       title: 'Learner',         desc: 'Constantly growing through DSA, DBMS, and modern web development.',                color: '#71717a' },
+  { icon: Code2, title: 'Developer', desc: 'Writing clean, structured code across Java, C, and web technologies.', color: '#a1a1aa' },
+  { icon: Lightbulb, title: 'Problem Solver', desc: 'Turning complex problems into elegant, practical solutions.', color: '#94a3b8' },
+  { icon: Layers, title: 'Builder', desc: 'Creating real-world projects that are useful, polished, and impactful.', color: '#d1d5db' },
+  { icon: Zap, title: 'Learner', desc: 'Constantly growing through DSA, DBMS, and modern web development.', color: '#71717a' },
 ];
 
 const journey = [
-  { year: '2022',  label: 'Started BCA',    desc: 'Began formal CS education' },
-  { year: '2023',  label: 'First Projects', desc: 'Built real-world web projects' },
-  { year: '2024',  label: 'Deep Dive',      desc: 'DSA, DBMS, Java, UI/UX focus' },
-  { year: '2025+', label: 'Building',       desc: 'Creating impactful digital experiences' },
+  { year: '2024', label: 'Jain College BBA, BCA & B.Com', desc: 'Started formal CS education' },
+  { year: '2025', label: 'First Projects', desc: 'Built real-world web projects' },
+  { year: '2026', label: 'Deep Dive', desc: 'DSA, DBMS, Java, UI/UX focus' },
+  { year: '2026+', label: 'Building', desc: 'Creating impactful digital experiences' },
 ];
 
 export default function AboutSection() {
@@ -58,7 +58,7 @@ export default function AboutSection() {
           >
             <p className="text-base sm:text-lg leading-relaxed mb-5" style={{ color: '#94a3b8' }}>
               I'm a <span className="font-semibold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">BCA student</span> focused on <span style={{ color: '#e2e8f0' }}>software development</span>,
-              <span style={{ color: '#e2e8f0' }}> DSA</span>, <span style={{ color: '#e2e8f0' }}>DBMS</span>, and <span style={{ color: '#e2e8f0' }}>modern web development</span>. My work is not just about writing code 
+              <span style={{ color: '#e2e8f0' }}> DSA</span>, <span style={{ color: '#e2e8f0' }}>DBMS</span>, and <span style={{ color: '#e2e8f0' }}>modern web development</span>. My work is not just about writing code
             </p>
             <p className="text-base sm:text-lg leading-relaxed mb-7" style={{ color: '#94a3b8' }}>
               I like turning <span className="font-semibold text-slate-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">raw ideas</span> into useful, polished, and
@@ -70,7 +70,7 @@ export default function AboutSection() {
               {[
                 { num: '4+', label: 'Projects Built' },
                 { num: '5+', label: 'Technologies' },
-                { num: '',  label: 'Ideas Brewing' },
+                { num: '', label: 'Ideas Brewing' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -125,31 +125,31 @@ export default function AboutSection() {
             Developer Journey
           </h3>
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-0">
-              <div
-                className="hidden sm:block absolute top-1/2 left-0 right-0 h-[1px]"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.15), transparent)' }}
-              />
-              <div
-                className="block sm:hidden absolute left-[1.375rem] top-0 bottom-0 w-[1px]"
-                style={{ background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.15), transparent)' }}
-              />
-              {journey.map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="relative flex flex-row sm:flex-col items-center sm:text-center flex-1 gap-4 sm:gap-0"
-                  initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
-                  whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.8, delay: 0.5 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            <div
+              className="hidden sm:block absolute top-1/2 left-0 right-0 h-[1px]"
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.15), transparent)' }}
+            />
+            <div
+              className="block sm:hidden absolute left-[1.375rem] top-0 bottom-0 w-[1px]"
+              style={{ background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.15), transparent)' }}
+            />
+            {journey.map((item, i) => (
+              <motion.div
+                key={i}
+                className="relative flex flex-row sm:flex-col items-center sm:text-center flex-1 gap-4 sm:gap-0"
+                initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
+                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.8, delay: 0.5 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center sm:mb-3 z-10 shrink-0"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    boxShadow: '0 0 20px rgba(255,255,255,0.05)',
+                  }}
                 >
-                  <div
-                    className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center sm:mb-3 z-10 shrink-0"
-                    style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      boxShadow: '0 0 20px rgba(255,255,255,0.05)',
-                    }}
-                  >
                   <span className="text-[10px] sm:text-xs font-bold gradient-text">{item.year}</span>
                 </div>
                 <div className="text-left sm:text-center">

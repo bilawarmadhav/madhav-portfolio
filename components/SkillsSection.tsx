@@ -5,11 +5,11 @@ import { motion, useInView } from 'framer-motion';
 import { Code2, Globe, Cpu, Palette, Wrench } from 'lucide-react';
 
 const categories = [
-  { name: 'Languages', icon: Code2,    color: '#a1a1aa', skills: ['Java', 'C'] },
-  { name: 'Web',       icon: Globe,    color: '#94a3b8', skills: ['HTML', 'CSS', 'JavaScript'] },
-  { name: 'Core CS',   icon: Cpu,      color: '#d1d5db', skills: ['DSA', 'DBMS'] },
-  { name: 'Creative',  icon: Palette,  color: '#71717a', skills: ['UI/UX Planning', 'Branding Ideas', 'Event Concepts'] },
-  { name: 'Tools',     icon: Wrench,   color: '#e2e8f0', skills: ['VS Code', 'GitHub', 'Figma', 'Canva'] },
+  { name: 'Languages', icon: Code2, color: '#a1a1aa', skills: ['Java', 'C'] },
+  { name: 'Web', icon: Globe, color: '#94a3b8', skills: ['HTML', 'CSS', 'JavaScript'] },
+  { name: 'Core CS', icon: Cpu, color: '#d1d5db', skills: ['DSA', 'DBMS'] },
+  { name: 'Creative', icon: Palette, color: '#71717a', skills: ['UI/UX Planning', 'Branding Ideas', 'Event Concepts'] },
+  { name: 'Tools', icon: Wrench, color: '#e2e8f0', skills: ['VS Code', 'GitHub', 'Figma', 'Canva'] },
 ];
 
 function SkillPill({ skill, color, delay }: { skill: string; color: string; delay: number }) {

@@ -15,6 +15,7 @@ const projects = [
     accent: '#a1a1aa',
     number: '01',
     status: 'Coming Soon',
+    link: '',
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const projects = [
     accent: '#94a3b8',
     number: '02',
     status: 'Live',
+    link: 'https://tenalitactician.netlify.app/',
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const projects = [
     accent: '#d1d5db',
     number: '03',
     status: 'Coming Soon',
+    link: '',
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ const projects = [
     accent: '#71717a',
     number: '04',
     status: 'Coming Soon',
+    link: '',
   },
 ];
 
@@ -126,21 +130,26 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
               ))}
             </div>
 
-            <div
-              className="mt-5 flex items-center gap-2 text-xs font-semibold relative z-20 transition-opacity duration-300 group-hover:opacity-100"
-              style={{ color: project.status === 'Live' ? project.accent : '#64748b', opacity: project.status === 'Live' ? 0.7 : 0.5 }}
-            >
-              {project.status === 'Live' ? (
-                <>
-                  <ExternalLink size={12} />
-                  View Project
-                </>
-              ) : (
-                <>
-                  Coming Soon
-                </>
-              )}
-            </div>
+            {project.status === 'Live' && project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-xs font-semibold relative z-20 transition-all duration-300 hover:gap-3"
+                style={{ color: project.accent, opacity: 0.8 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <ExternalLink size={12} />
+                View Project
+              </a>
+            ) : (
+              <div
+                className="mt-5 flex items-center gap-2 text-xs font-semibold relative z-20"
+                style={{ color: '#64748b', opacity: 0.5 }}
+              >
+                Coming Soon
+              </div>
+            )}
           </div>
         </div>
       </TiltCard>

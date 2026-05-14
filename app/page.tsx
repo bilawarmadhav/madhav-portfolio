@@ -31,10 +31,6 @@ export default function Home() {
             <main>
               <HeroSection />
               <AboutSection />
-              <ProjectsSection />
-              <SkillsSection />
-              <FocusSection />
-              <ContactSection />
             </main>
             <Footer />
           </motion.div>
