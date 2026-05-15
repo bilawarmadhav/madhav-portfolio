@@ -84,7 +84,7 @@ export default function ProjectsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative w-full overflow-hidden px-4 sm:px-6 pb-16 pt-32 sm:pt-36 md:pt-44">
+      <section id="projects" className="relative w-full overflow-hidden px-4 sm:px-6 pb-16 pt-32 sm:pt-36 md:pt-44 scroll-mt-24">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at top, #101010 0%, #050505 70%)' }} />
         <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-[120px] pointer-events-none opacity-30"
           style={{ background: 'radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%)' }} />

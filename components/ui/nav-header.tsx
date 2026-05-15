@@ -16,9 +16,10 @@ import {
 
 const NAV_ITEMS = [
   { label: "Home",       href: "/",           hashTarget: "#home",     icon: Home },
+  { label: "About",      href: "/#about",     hashTarget: "#about",    icon: FileText },
   { label: "Projects",   href: "/projects",   hashTarget: "#projects", icon: Briefcase },
   { label: "Skills",     href: "/skills",     hashTarget: "#skills",   icon: Code2 },
-  { label: "Experience", href: "/experience", hashTarget: null,        icon: History },
+  { label: "Experience", href: "/experience", hashTarget: "#experience", icon: History },
   { label: "Contact",    href: "/contact",    hashTarget: "#contact",  icon: Mail },
   { label: "Resume",     href: "/resume",     hashTarget: null,        icon: FileText },
 ];
@@ -28,16 +29,21 @@ function NavHeader() {
   const router   = useRouter();
 
   const handleClick = (href: string, hashTarget: string | null) => {
-    if (pathname === "/" && hashTarget) {
+    if (hashTarget) {
       const el = document.querySelector(hashTarget);
-      if (el) { el.scrollIntoView({ behavior: "smooth" }); return; }
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
     }
     router.push(href);
   };
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(href + "/");
+    const path = href.split('#')[0];
+    if (path === "/") return pathname === "/";
+    return pathname === path || pathname.startsWith(path + "/");
   };
 
   return (

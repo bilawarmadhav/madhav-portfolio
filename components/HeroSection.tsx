@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Send } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { LiquidButton } from './ui/liquid-glass-button';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons';
 
@@ -30,9 +31,15 @@ const socialLinks = [
 ];
 
 export default function HeroSection() {
-  const scrollToSection = (selector: string) => {
+  const router = useRouter();
+
+  const handleNavigation = (href: string, selector: string) => {
     const el = document.querySelector(selector);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push(href);
+    }
   };
 
   return (
@@ -110,7 +117,7 @@ export default function HeroSection() {
           >
             <LiquidButton
               type="button"
-              onClick={() => scrollToSection('#projects')}
+              onClick={() => handleNavigation('/projects', '#projects')}
               className="w-full sm:w-auto text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-shadow"
               glassColor="rgba(255, 255, 255, 0.05)"
             >
@@ -120,7 +127,7 @@ export default function HeroSection() {
 
             <LiquidButton
               type="button"
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => handleNavigation('/contact', '#contact')}
               className="w-full sm:w-auto text-slate-300 shadow-none hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] transition-shadow"
               glassColor="rgba(255, 255, 255, 0.02)"
             >

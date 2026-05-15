@@ -23,7 +23,7 @@ export default function AboutSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" ref={ref} className="relative w-full overflow-hidden px-4 sm:px-6 pb-16 pt-10 sm:pb-20 sm:pt-12 md:pb-24 md:pt-16 lg:pb-32">
+    <section id="about" ref={ref} className="relative w-full overflow-hidden px-4 sm:px-6 pb-16 pt-10 sm:pb-20 sm:pt-12 md:pb-24 md:pt-16 lg:pb-32 scroll-mt-24">
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #050505 100%)' }} />
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-20 pointer-events-none"

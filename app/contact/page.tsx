@@ -108,7 +108,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative w-full overflow-hidden px-4 sm:px-6 pb-16 pt-32 sm:pt-40">
+      <section id="contact" className="relative w-full overflow-hidden px-4 sm:px-6 pb-16 pt-32 sm:pt-40 scroll-mt-24">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at top, #0a0a0a 0%, #050505 70%)' }} />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-10 pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)' }} />
