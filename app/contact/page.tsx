@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '@/components/Icons';
-import { GlassButton } from '@/components/ui/apple-tahoe-liquid-glass-button';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 
 
@@ -252,7 +252,7 @@ export default function ContactPage() {
                   )}
                 </AnimatePresence>
 
-                <GlassButton
+                <LiquidButton
                   type="submit"
                   disabled={status === 'loading'}
                   className="w-full shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300"
@@ -268,7 +268,7 @@ export default function ContactPage() {
                   ) : (
                     <><Send size={15} /> Send Message</>
                   )}
-                </GlassButton>
+                </LiquidButton>
               </form>
             </motion.div>
           </div>

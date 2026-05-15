@@ -1,24 +1,31 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { LiquidButton } from "./liquid-glass-button";
+import { 
+  Home, 
+  Briefcase, 
+  Code2, 
+  History, 
+  Mail, 
+  FileText 
+} from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Home",       href: "/",           hashTarget: "#home"     },
-  { label: "Projects",   href: "/projects",   hashTarget: "#projects" },
-  { label: "Skills",     href: "/skills",     hashTarget: "#skills"   },
-  { label: "Experience", href: "/experience", hashTarget: null        },
-  { label: "Contact",    href: "/contact",    hashTarget: "#contact"  },
-  { label: "Resume",     href: "/resume",     hashTarget: null        },
+  { label: "Home",       href: "/",           hashTarget: "#home",     icon: Home },
+  { label: "Projects",   href: "/projects",   hashTarget: "#projects", icon: Briefcase },
+  { label: "Skills",     href: "/skills",     hashTarget: "#skills",   icon: Code2 },
+  { label: "Experience", href: "/experience", hashTarget: null,        icon: History },
+  { label: "Contact",    href: "/contact",    hashTarget: "#contact",  icon: Mail },
+  { label: "Resume",     href: "/resume",     hashTarget: null,        icon: FileText },
 ];
 
 function NavHeader() {
   const pathname = usePathname();
   const router   = useRouter();
-
-  const [position, setPosition] = useState({ left: 0, width: 0, opacity: 0 });
 
   const handleClick = (href: string, hashTarget: string | null) => {
     if (pathname === "/" && hashTarget) {
@@ -34,65 +41,38 @@ function NavHeader() {
   };
 
   return (
-    <ul
-      className="relative mx-auto flex w-fit rounded-full border border-white/10 bg-black/60 backdrop-blur-xl p-1"
-      onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
-    >
-      {NAV_ITEMS.map(({ label, href, hashTarget }) => (
-        <Tab
-          key={label}
-          setPosition={setPosition}
-          onClick={() => handleClick(href, hashTarget)}
-          active={isActive(href)}
-        >
-          {label}
-        </Tab>
-      ))}
-      <Cursor position={position} />
-    </ul>
+    <div className="flex w-fit items-center justify-center rounded-full border border-white/5 bg-black/40 backdrop-blur-md p-1.5 shadow-2xl">
+      <div className="flex items-center gap-1 md:gap-1.5">
+        {NAV_ITEMS.map(({ label, href, hashTarget, icon: Icon }) => {
+          const active = isActive(href);
+          return (
+            <LiquidButton
+              key={label}
+              size="sm"
+              onClick={() => handleClick(href, hashTarget)}
+              className={cn(
+                "relative transition-all duration-300",
+                active ? "text-white" : "text-slate-400 hover:text-slate-200"
+              )}
+              glassColor={active ? "rgba(255, 255, 255, 0.08)" : "transparent"}
+            >
+              <Icon size={14} className={cn("transition-transform duration-300", active && "scale-110")} />
+              <span className="hidden md:block text-[11px] font-bold uppercase tracking-wider">
+                {label}
+              </span>
+              {active && (
+                <motion.span
+                  layoutId="nav-active-dot"
+                  className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white/60 shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </LiquidButton>
+          );
+        })}
+      </div>
+    </div>
   );
 }
-
-const Tab = ({
-  children,
-  setPosition,
-  onClick,
-  active,
-}: {
-  children: React.ReactNode;
-  setPosition: React.Dispatch<React.SetStateAction<{ left: number; width: number; opacity: number }>>;
-  onClick?: () => void;
-  active?: boolean;
-}) => {
-  const ref = useRef<HTMLLIElement>(null);
-  return (
-    <li
-      ref={ref}
-      onClick={onClick}
-      onMouseEnter={() => {
-        if (!ref.current) return;
-        const { width } = ref.current.getBoundingClientRect();
-        setPosition({ width, opacity: 1, left: ref.current.offsetLeft });
-      }}
-      className="relative z-10 block cursor-pointer px-2.5 py-2 text-[10px] font-bold uppercase tracking-wider md:px-5 md:py-2.5 md:text-[12px] transition-colors"
-      style={{ color: active ? "#f1f5f9" : "#64748b" }}
-    >
-      {children}
-      {active && (
-        <span
-          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white/40"
-        />
-      )}
-    </li>
-  );
-};
-
-const Cursor = ({ position }: { position: { left: number; width: number; opacity: number } }) => (
-  <motion.li
-    animate={position}
-    className="absolute z-0 h-8 rounded-full bg-white/5 border border-white/5 md:h-[38px]"
-    style={{ top: "4px" }}
-  />
-);
 
 export default NavHeader;

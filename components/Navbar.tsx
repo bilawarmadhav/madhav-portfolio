@@ -20,7 +20,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
     >
-      <div className="max-w-5xl mx-auto flex justify-center pointer-events-auto">
+      <div className="max-w-3xl mx-auto flex justify-center pointer-events-auto">
         <NavHeader />
       </div>
     </motion.nav>

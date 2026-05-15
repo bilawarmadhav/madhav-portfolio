@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { GlassButton } from './ui/apple-tahoe-liquid-glass-button';
+import { LiquidButton } from './ui/liquid-glass-button';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons';
 
 
@@ -234,7 +234,7 @@ export default function ContactSection() {
                 )}
               </AnimatePresence>
 
-              <GlassButton
+              <LiquidButton
                 type="submit"
                 disabled={status === 'loading'}
                 className="w-full shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300"
@@ -253,7 +253,7 @@ export default function ContactSection() {
                 ) : (
                   <><Send size={15} /> Send Message</>
                 )}
-              </GlassButton>
+              </LiquidButton>
             </form>
           </motion.div>
         </div>

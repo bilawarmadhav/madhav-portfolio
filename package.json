@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@radix-ui/react-slot": "^1.2.4",
     "@studio-freight/lenis": "^1.0.42",
     "autoprefixer": "^10.5.0",
     "class-variance-authority": "^0.7.1",

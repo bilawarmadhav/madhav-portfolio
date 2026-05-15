@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Send } from 'lucide-react';
-import { GlassButton } from './ui/apple-tahoe-liquid-glass-button';
+import { LiquidButton } from './ui/liquid-glass-button';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons';
 
 
@@ -108,7 +108,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <GlassButton
+            <LiquidButton
               type="button"
               onClick={() => scrollToSection('#projects')}
               className="w-full sm:w-auto text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-shadow"
@@ -116,9 +116,9 @@ export default function HeroSection() {
             >
               View My Work
               <ArrowRight size={15} />
-            </GlassButton>
+            </LiquidButton>
 
-            <GlassButton
+            <LiquidButton
               type="button"
               onClick={() => scrollToSection('#contact')}
               className="w-full sm:w-auto text-slate-300 shadow-none hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] transition-shadow"
@@ -126,7 +126,7 @@ export default function HeroSection() {
             >
               Contact Me
               <Send size={15} />
-            </GlassButton>
+            </LiquidButton>
           </motion.div>
 
           {/* Social icons */}

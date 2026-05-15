@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Download, ExternalLink, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/Icons';
-import { GlassButton } from '@/components/ui/apple-tahoe-liquid-glass-button';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const experience = [
   {
@@ -71,7 +71,7 @@ export default function ResumePage() {
 
             {/* Download CTA */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-              <GlassButton
+              <LiquidButton
                 type="button"
                 className="shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
                 glassColor="rgba(255,255,255,0.07)"
@@ -80,7 +80,7 @@ export default function ResumePage() {
               >
                 <Download size={15} />
                 Download Resume
-              </GlassButton>
+              </LiquidButton>
 
               <a
                 href="mailto:bilawarmadhav@gmail.com"
